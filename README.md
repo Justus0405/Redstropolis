@@ -1,11 +1,10 @@
-<p align="left">
+<img width="2048" height="271" alt="title" src="https://github.com/user-attachments/assets/e83b1d08-f927-49d8-9a0b-4890e2f2f60d" /><br>
+
+<p align="center">
     <!-- Discord Badge -->
     <a href="https://discord.justus0405.com/"><img src="https://img.shields.io/discord/1370519315400495234?logo=Discord&colorA=1e1e2e&colorB=a6e3a1&style=for-the-badge"></a>
     <!-- Version Badge -->
-    <a href="https://github.com/Justus0405/Redstropolis/blob/main/Redstropolis.sh"><img src="https://img.shields.io/badge/Version-1.0-blue?colorA=1e1e2e&colorB=cdd6f4&style=for-the-badge"></a>
-</p>
-
-<p align="left">
+    <a href="https://github.com/Justus0405/Redstropolis/blob/main/Redstropolis.sh"><img src="https://img.shields.io/badge/Version-1.0_pre-blue?colorA=1e1e2e&colorB=cdd6f4&style=for-the-badge"></a>
     <!-- Stars Badge -->
 	<a href="https://github.com/Justus0405/Redstropolis/stargazers"><img src="https://img.shields.io/github/stars/Justus0405/Redstropolis?colorA=1e1e2e&colorB=b7bdf8&style=for-the-badge"></a>
     <!-- Issues Badge -->

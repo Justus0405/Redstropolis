@@ -1,0 +1,30 @@
+services:
+  redstropolis-server:
+    container_name: "redstropolis-server"
+    restart: "unless-stopped"
+
+    # Build settings for the redstropolis-server server image
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    # Enable interactive console access:
+    #   docker attach redstropolis-server
+    stdin_open: true
+    tty: true
+
+    # Run server as non-root user (UID:GID = 1000:1000)
+    user: "1000:1000"
+
+    # Expose Minecraft server port (TCP)
+    ports:
+      - "25565:25565/tcp"
+
+    # Persistent game data
+    volumes:
+      - ./server-backups:/home/ubuntu/redstropolis-server/backups
+      - ./server-world:/home/ubuntu/redstropolis-server/world
+
+    # Environment variables
+    environment:
+      TZ: "Europe/Berlin"

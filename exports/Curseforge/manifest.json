@@ -1,0 +1,17 @@
+{
+  "minecraft": {
+    "version": "1.7.10",
+    "modLoaders": [
+      {
+        "id": "forge-10.13.4.1614",
+        "primary": true
+      }
+    ]
+  },
+  "manifestType": "minecraftModpack",
+  "manifestVersion": 1,
+  "name": "Redstropolis",
+  "version": "PLACEHOLDER",
+  "author": "Justus0405",
+  "overrides": "overrides"
+}

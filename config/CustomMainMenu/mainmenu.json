@@ -1,0 +1,154 @@
+{
+    "images":
+    {
+        "title":
+        {
+            "image" : "mainmenu:textures/title.png",
+            "posX" : -265,
+            "posY" : -75,
+            "width" : 530,
+            "height" : 70,
+            "alignment" : "center"
+        }
+    },
+
+    "buttons":
+    {
+        "singleplayer":
+        {
+            "text" : "menu.singleplayer",
+            "texture": "mainmenu:textures/button.png",
+            "normalTextColor": 12369084,
+            "hoverTextColor": 16777215,
+            "posX" : -250,
+            "posY" : 0,
+            "width" : 100,
+            "height" : 20,
+            "alignment" : "center",
+            "action" :
+            {
+                "type" : "openGui",
+                "gui" : "singleplayer"
+            }
+        },
+
+        "multiplayer":
+        {
+            "text" : "menu.multiplayer",
+            "texture": "mainmenu:textures/button.png",
+            "normalTextColor": 12369084,
+            "hoverTextColor": 16777215,
+            "posX" : -150,
+            "posY" : 0,
+            "width" : 100,
+            "height" : 20,
+            "alignment" : "center",
+            "action" :
+            {
+                "type" : "openGui",
+                "gui" : "multiplayer"
+            }
+        },
+
+        "mods":
+        {
+            "text" : "Mods",
+            "texture": "mainmenu:textures/button.png",
+            "normalTextColor": 12369084,
+            "hoverTextColor": 16777215,
+            "posX" : -50,
+            "posY" : 0,
+            "width" : 100,
+            "height" : 20,
+            "alignment" : "center",
+            "action" :
+            {
+                "type" : "openGui",
+                "gui" : "mods"
+            }
+        },
+
+        "options":
+        {
+            "text" : "menu.options",
+            "texture": "mainmenu:textures/button.png",
+            "normalTextColor": 12369084,
+            "hoverTextColor": 16777215,
+            "posX" : 50,
+            "posY" : 0,
+            "width" : 100,
+            "height" : 20,
+            "alignment" : "center",
+            "action" :
+            {
+                "type" : "openGui",
+                "gui" : "options"
+            }
+        },
+
+        "quit":
+        {
+            "text" : "menu.quit",
+            "texture": "mainmenu:textures/button.png",
+            "normalTextColor": 12369084,
+            "hoverTextColor": 16777215,
+            "posX" : 150,
+            "posY" : 0,
+            "width" : 100,
+            "height" : 20,
+            "alignment" : "center",
+            "action" :
+            {
+                "type" : "quit"
+            }
+        }
+    },
+
+    "texts":
+    {
+        "mcversion":
+        {
+            "text" : "Minecraft #mcversion#",
+            "posX" : 10,
+            "posY" : -30,
+            "color" : -1,
+            "alignment" : "bottom_left"
+        },
+
+        "modsloaded":
+        {
+            "text" : "#modsloaded# mods loaded",
+            "posX" : 10,
+            "posY" : -15,
+            "color" : -1,
+            "alignment" : "bottom_left"
+        },
+
+        "attribution":
+        {
+            "text" : "Made with <3 by Justus0405!",
+            "posX" : -150,
+            "posY" : -30,
+            "color" : -1,
+            "alignment" : "bottom_right"
+        },
+
+        "mojang":
+        {
+            "text" : "Copyright Mojang AB. Do not distribute!",
+            "posX" : -205,
+            "posY" : -15,
+            "color" : -1,
+            "alignment" : "bottom_right"
+        }
+    },
+
+    "other":
+    {
+        "background":
+		{
+			"image" : "mainmenu:textures/background.jpg",
+			"mode" : "stretch"
+		}
+    }
+}

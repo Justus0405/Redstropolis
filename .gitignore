@@ -1,0 +1,12 @@
+# Builds
+build/
+
+# Downloads
+downloads/
+
+# scripts/libs
+.env
+
+# server files
+server-backups/
+server-world/

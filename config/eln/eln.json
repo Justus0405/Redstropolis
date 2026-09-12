@@ -1,0 +1,363 @@
+{
+  "schemaVersion": 1,
+  "_comment": "Electrical Age configuration in JSON format. Files live in config/eln/.",
+  "integrations": {
+    "_comment": "Cross-mod integrations and external protocol bridges.",
+    "modbus": {
+      "enabled": false,
+      "_comment_enabled": "Enable Modbus RTU.",
+      "port": 1502,
+      "_comment_port": "TCP port for Modbus RTU."
+    },
+    "mqtt": {
+      "enabled": false,
+      "_comment_enabled": "Enable MQTT devices. Server endpoints live in config/eln/mqtt.json.",
+      "simMetrics": {
+        "enabled": false,
+        "_comment_enabled": "Publish simulator MNA metrics to MQTT.",
+        "server": "",
+        "_comment_server": "MQTT server name in config/eln/mqtt.json used for simulator metrics.",
+        "id": "server",
+        "_comment_id": "Topic ID used under eln/sim/<id>/... for simulator metrics.",
+        "publishIntervalTicks": 20,
+        "_comment_publishIntervalTicks": "Simulator ticks to aggregate before MQTT publish. Higher values reduce overhead."
+      }
+    },
+    "computerProbe": {
+      "enabled": true,
+      "_comment_enabled": "Enable the OC/CC to Eln computer probe."
+    },
+    "energyExporter": {
+      "enabled": true,
+      "_comment_enabled": "Enable the Eln energy exporter."
+    },
+    "oredict": {
+      "tungstenEnabled": false,
+      "_comment_tungstenEnabled": "Use shared ore dictionary entries for tungsten.",
+      "chipsEnabled": true,
+      "_comment_chipsEnabled": "Use shared ore dictionary entries for chips."
+    }
+  },
+  "debug": {
+    "_comment": "Debug logging and audio diagnostics.",
+    "logging": {
+      "enabled": false,
+      "_comment_enabled": "Enable debug printing spam.",
+      "simSnapshot": false,
+      "_comment_simSnapshot": "Enable circuit snapshot logging. Requires debug.logging.enabled."
+    }
+  },
+  "ui": {
+    "_comment": "HUD and item icon presentation.",
+    "audio": {
+      "maxSoundDistance": 16.0,
+      "_comment_maxSoundDistance": "Lower this if you hear clipping in dense generator rooms.",
+      "soundChannels": 200,
+      "_comment_soundChannels": "Override the number of sound channels. Use -1 for the Minecraft default."
+    },
+    "waila": {
+      "easyMode": true,
+      "_comment_easyMode": "Display more detailed WAILA info on some machines."
+    },
+    "icons": {
+      "noSymbols": false,
+      "_comment_noSymbols": "Show the item instead of the electrical symbol as an icon.",
+      "noVoltageBackground": false,
+      "_comment_noVoltageBackground": "Disable colored backgrounds for items."
+    }
+  },
+  "gameplay": {
+    "_comment": "Gameplay toggles and seasonal behavior.",
+    "hazards": {
+      "explosionsEnabled": false,
+      "_comment_explosionsEnabled": "Make explosions a bit bigger."
+    },
+    "seasonal": {
+      "enableFestiveItems": true,
+      "_comment_enableFestiveItems": "Set false to disable festive items."
+    },
+    "crafting": {
+      "verticalIronCableCrafting": false,
+      "_comment_verticalIronCableCrafting": "Craft iron cables with vertical ingots instead of horizontal ones."
+    },
+    "cables": {
+      "creativeFreeLength": true,
+      "_comment_creativeFreeLength": "When enabled, creative players do not consume utility cable length when placing cables or connecting poles."
+    },
+    "qol": {
+      "rememberLastLampSignalName": true,
+      "_comment_rememberLastLampSignalName": "Lamp sockets remember the last used wireless channel name.",
+      "rememberLastLampSocketContents": true,
+      "_comment_rememberLastLampSocketContents": "Lamp sockets are pre filled with last used bulb and cable (creative only).",
+      "creativeNoConsumeInsertedItems": true,
+      "_comment_creativeNoConsumeInsertedItems": "Right click insertion does not consume items from creative players.",
+      "rememberLastFloodlightBulbs": true,
+      "_comment_rememberLastFloodlightBulbs": "Floodlights are pre filled with last used bulbs (creative only)."
+    }
+  },
+  "simulation": {
+    "_comment": "Electrical, thermal, and room simulation settings.",
+    "watchdog": {
+      "destruction": {
+        "thermal": true,
+        "_comment_thermal": "Allow thermal watchdogs to destroy blocks except resistor heat watchdogs.",
+        "resistorHeat": false,
+        "_comment_resistorHeat": "Allow resistor heat watchdogs to destroy blocks.",
+        "current": true,
+        "_comment_current": "Allow current watchdogs to destroy blocks.",
+        "voltage": true,
+        "_comment_voltage": "Allow voltage watchdogs to destroy blocks.",
+        "shaftSpeed": true,
+        "_comment_shaftSpeed": "Allow shaft speed watchdogs to destroy blocks.",
+        "other": true,
+        "_comment_other": "Allow all other watchdog types to destroy blocks."
+      }
+    },
+    "electrical": {
+      "frequency": 20.0,
+      "_comment_frequency": "Set to a clean divisor of 20.",
+      "interSystemOverSampling": 50,
+      "_comment_interSystemOverSampling": "Avoid setting this below 50."
+    },
+    "thermal": {
+      "frequency": 400.0,
+      "_comment_frequency": "Thermal simulation update frequency.",
+      "cableSpikeLimiter": {
+        "enabled": true,
+        "_comment_enabled": "Clamp how fast cables and transformers heat up.",
+        "factor": 20.0,
+        "_comment_factor": "Multiplier applied to nominal heating rate when the cable spike limiter is enabled."
+      },
+      "ambient": {
+        "lavaRampEnabled": true,
+        "_comment_lavaRampEnabled": "Blend ambient temperature toward 40C between Y20 and Y12, then clamp below Y12.",
+        "undergroundBiomeTemperatureMultiplier": 0.2,
+        "_comment_undergroundBiomeTemperatureMultiplier": "Multiplier applied to biome ambient temperature for the Y50 underground baseline."
+      }
+    },
+    "roomDetection": {
+      "maxAxisSpanBlocks": 24,
+      "_comment_maxAxisSpanBlocks": "Maximum room span on any axis for room detection.",
+      "maxVolumeBlocks": 4096,
+      "_comment_maxVolumeBlocks": "Maximum enclosed-air room volume for room detection."
+    }
+  },
+  "updates": {
+    "_comment": "Version check behavior.",
+    "versionCheck": {
+      "enabled": false,
+      "_comment_enabled": "Enable the version checker."
+    }
+  },
+  "analytics": {
+    "_comment": "Anonymous usage telemetry settings.",
+    "enabled": false,
+    "_comment_enabled": "Enable Electrical Age analytics.",
+    "endpointUrl": "http://eln.ja13.org/stat",
+    "_comment_endpointUrl": "Analytics endpoint URL.",
+    "playerUuidOptIn": false,
+    "_comment_playerUuidOptIn": "Opt into sending the player UUID with analytics.",
+    "playerUuid": "1f64b36e-5420-4ab9-b360-2a6f74e1c45c",
+    "_comment_playerUuid": "Locally generated UUID used when analytics.playerUuidOptIn is enabled."
+  },
+  "world": {
+    "_comment": "World interaction toggles and pole placement behavior.",
+    "poles": {
+      "directPlacementEnabled": true,
+      "_comment_directPlacementEnabled": "Enable direct air-to-ground pole placement."
+    }
+  },
+  "balance": {
+    "_comment": "Balance multipliers used across machines and recipes.",
+    "generators": {
+      "heatTurbinePowerFactor": 8.0,
+      "solarPanelPowerFactor": 8.0,
+      "windTurbinePowerFactor": 8.0,
+      "waterTurbinePowerFactor": 8.0,
+      "fuelGeneratorPowerFactor": 8.0,
+      "fuelHeatFurnacePowerFactor": 8.0
+    },
+    "integrationConversion": {
+      "wattsToEu": 0.3333333333333333,
+      "_comment_wattsToEu": "Watts to EU conversion ratio.",
+      "wattsToOc": 0.13333333333333333,
+      "_comment_wattsToOc": "Watts to OpenComputers power conversion ratio.",
+      "wattsToRf": 1.3333333333333333,
+      "_comment_wattsToRf": "Watts to RF conversion ratio."
+    },
+    "materials": {
+      "platesPerIngot": 1,
+      "_comment_platesPerIngot": "Plates made per ingot."
+    },
+    "mechanics": {
+      "shaftEnergyFactor": 0.05,
+      "flywheelMass": 50.0,
+      "_comment_flywheelMass": "Flywheel mass."
+    },
+    "storage": {
+      "batteryCapacityFactor": 8.0
+    },
+    "cables": {
+      "powerFactor": 8.0,
+      "_comment_powerFactor": "Multiplier for cable power capacity."
+    }
+  },
+  "machines": {
+    "_comment": "Machine-specific settings.",
+    "autominer": {
+      "maxRangeBlocks": 10,
+      "_comment_maxRangeBlocks": "Maximum horizontal distance from the autominer that will be mined."
+    },
+    "fuelGenerator": {
+      "tankCapacitySecondsAtNominalPower": 1200.0
+    },
+    "heatFurnace": {
+      "consumeFuel": true,
+      "_comment_consumeFuel": "Controls whether heat furnaces consume fuel."
+    }
+  },
+  "items": {
+    "_comment": "Item-specific tuning values.",
+    "batteries": {
+      "standardHalfLifeDays": 4096.0,
+      "_comment_standardHalfLifeDays": "Number of Minecraft days for a standard battery to decay halfway.",
+      "infinite": {
+        "standard": true,
+        "_comment_standard": "Disable wear-out for standard batteries.",
+        "portable": true,
+        "_comment_portable": "Disable wear-out for portable batteries."
+      }
+    },
+    "turbineBlades": {
+      "iron": {
+        "nominalLifeHours": 4096.0,
+        "_comment_nominalLifeHours": "Nominal turbine blade lifetime in hours for the iron tier.",
+        "infiniteLifeEnabled": true,
+        "_comment_infiniteLifeEnabled": "Disable wear-out for iron turbine blades."
+      },
+      "steel": {
+        "nominalLifeHours": 4096.0,
+        "_comment_nominalLifeHours": "Nominal turbine blade lifetime in hours for the steel tier.",
+        "infiniteLifeEnabled": true,
+        "_comment_infiniteLifeEnabled": "Disable wear-out for steel turbine blades."
+      },
+      "alloy": {
+        "nominalLifeHours": 4096.0,
+        "_comment_nominalLifeHours": "Nominal turbine blade lifetime in hours for the alloy tier.",
+        "infiniteLifeEnabled": true,
+        "_comment_infiniteLifeEnabled": "Disable wear-out for alloy turbine blades."
+      },
+      "tungsten": {
+        "nominalLifeHours": 4096.0,
+        "_comment_nominalLifeHours": "Nominal turbine blade lifetime in hours for the tungsten tier.",
+        "infiniteLifeEnabled": true,
+        "_comment_infiniteLifeEnabled": "Disable wear-out for tungsten turbine blades."
+      }
+    },
+    "clutchPlates": {
+      "infiniteLifeEnabled": true,
+      "_comment_infiniteLifeEnabled": "Disable clutch plate wear-out."
+    }
+  },
+  "entities": {
+    "_comment": "Mob spawning and replicator behavior.",
+    "replicator": {
+      "enabled": false,
+      "_comment_enabled": "Enable the replicator mob.",
+      "thunderSpawnPerSecondPerPlayer": 0.008333333333333333,
+      "entityId": -1,
+      "maxCount": 100
+    },
+    "mobSpawning": {
+      "preventNearLamps": true,
+      "_comment_preventNearLamps": "Prevent monsters from spawning near lamps.",
+      "preventNearLampsRange": 9
+    }
+  },
+  "worldgen": {
+    "_comment": "Ore generation controls.",
+    "ores": {
+      "copper": {
+        "enabled": false
+      },
+      "lead": {
+        "enabled": false
+      },
+      "tungsten": {
+        "enabled": false
+      },
+      "cinnabar": {
+        "enabled": false
+      }
+    }
+  },
+  "tools": {
+    "_comment": "Tool behavior settings.",
+    "xrayScanner": {
+      "autoDiscoverOreDictionaryOres": true,
+      "_comment_autoDiscoverOreDictionaryOres": "Auto-discover ores from the Ore Dictionary that are not in oreFactors.",
+      "rangeBlocks": 5.0,
+      "_comment_rangeBlocks": "X-ray scanner range in blocks. Intended range is 4 to 10.",
+      "canBeCrafted": true,
+      "autoDiscoveryOreFactor": 0.15,
+      "_comment_autoDiscoveryOreFactor": "Default factor for auto-discovered ores not listed in oreFactors.",
+      "oreFactors": {
+        "minecraft:coal_ore": 0.05,
+        "minecraft:iron_ore": 0.15,
+        "minecraft:gold_ore": 0.4,
+        "minecraft:lapis_ore": 0.4,
+        "minecraft:redstone_ore": 0.4,
+        "minecraft:diamond_ore": 1.0,
+        "minecraft:emerald_ore": 0.4,
+        "Eln:Eln.Ore:1": 0.1,
+        "Eln:Eln.Ore:4": 0.2,
+        "Eln:Eln.Ore:5": 0.2,
+        "Eln:Eln.Ore:6": 0.2
+      },
+      "_comment_oreFactors": "Ore scanner detection factors. Keys with ':' are block references (modid:name or modid:name:meta), keys without ':' are OreDictionary names. The ELN ores at the top are, in order: Copper Ore, Lead Ore, Tungsten Ore, and Cinnabar Ore."
+    }
+  },
+  "wireless": {
+    "_comment": "Wireless range settings.",
+    "transmitter": {
+      "maxRangeBlocks": 4096,
+      "_comment_maxRangeBlocks": "Maximum range for wireless transmitters and lamp supplies."
+    }
+  },
+  "lighting": {
+    "_comment": "Lamp technology settings generated from registered lamp types.",
+    "lamps": {
+      "_comment": "Per-lamp-type durability tuning.",
+      "incandescent": {
+        "nominalLifeInHours": 4096.0,
+        "infiniteLifeEnabled": true,
+        "_comment_infiniteLifeEnabled": "Disable bulb wear-out for incandescent bulbs."
+      },
+      "carbon": {
+        "nominalLifeInHours": 4096.0,
+        "infiniteLifeEnabled": true,
+        "_comment_infiniteLifeEnabled": "Disable bulb wear-out for carbon bulbs."
+      },
+      "fluorescent": {
+        "nominalLifeInHours": 4096.0,
+        "infiniteLifeEnabled": true,
+        "_comment_infiniteLifeEnabled": "Disable bulb wear-out for fluorescent bulbs."
+      },
+      "farming": {
+        "nominalLifeInHours": 4096.0,
+        "infiniteLifeEnabled": true,
+        "_comment_infiniteLifeEnabled": "Disable bulb wear-out for farming bulbs."
+      },
+      "led": {
+        "nominalLifeInHours": 4096.0,
+        "infiniteLifeEnabled": true,
+        "_comment_infiniteLifeEnabled": "Disable bulb wear-out for led bulbs."
+      },
+      "halogen": {
+        "nominalLifeInHours": 4096.0,
+        "infiniteLifeEnabled": true,
+        "_comment_infiniteLifeEnabled": "Disable bulb wear-out for halogen bulbs."
+      }
+    }
+  }
+}

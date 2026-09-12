@@ -142,7 +142,3 @@ All other assets remain under their respective licenses.
 <p align="center">
 	Copyright &copy; 2026-present <a href="https://github.com/Justus0405" target="_blank">Justus0405</a>
 </p>
-
-<p align="center">
-	<a href="https://github.com/Justus0405/Redstropolis/blob/main/LICENSE"><img src="https://img.shields.io/github/license/Justus0405/Redstropolis?logo=Github&colorA=1e1e2e&colorB=cba6f7&style=for-the-badge"></a>
-</p>
